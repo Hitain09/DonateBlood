@@ -1,0 +1,10 @@
+function validateEmail(email)
+{
+	if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.email.value))
+		{
+			return(true)
+		}
+		
+		alert("Invalid email")
+		return(false)
+}

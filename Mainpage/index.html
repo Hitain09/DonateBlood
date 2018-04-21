@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Login & Sign Up Form</title>
+  
+  
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans:400,300'>
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+
+      <link rel="stylesheet" href="css/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
+</script>
+  
+</head>
+
+<body ng-app="">
+
+  <div class="cotn_principal">
+<div class="cont_centrar">
+
+  <div class="cont_login">
+<div class="cont_info_log_sign_up">
+      <div class="col_md_login">
+	  <br>
+<br>
+<div class="cont_ba_opcitiy">
+        
+        <button class="btn_login" onclick="cambiar_login()">LOGIN</button>
+  </div>
+  </div>
+<div class="col_md_sign_up">
+<br><br>
+<div class="cont_ba_opcitiy">
+    <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
+</div>
+  </div>
+       </div>
+
+    
+    <div class="cont_back_info">
+       <div class="cont_img_back_grey">
+       <img src="css\240_F_191041366_qB7Ey4DymviL6GjQZ7czzAu7Qwe2yAae.jpg" alt="" />
+       </div>
+       
+    </div>
+<div class="cont_forms" >
+    <div class="cont_img_back_">
+       <img src="css\240_F_191041366_qB7Ey4DymviL6GjQZ7czzAu7Qwe2yAae.jpg" alt="" />
+       </div>
+ <div class="cont_form_login">
+<a href="#" onclick="ocultar_login_sign_up()" ><i class="material-icons">&#xE5C4;</i></a>
+   <h2>LOGIN</h2>
+ <input type="email" placeholder="Email" required>
+<input type="password" placeholder="Password" required>
+<button class="btn_login" onclick="login()"><a href="C:\Users\Akansha Panwar\Desktop\OctaHacks\video.html">LOGIN</a></button>
+  </div>
+  
+   <div class="cont_form_sign_up">
+<a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
+     <h2>SIGN UP</h2>
+<input type="text" id ='name_field' placeholder="Full Name" required>
+<input type="email" id ='email_field' placeholder="Email" required>
+<input type="text" id='phonefield' placeholder="Phone Number" required>
+<input type="password" id='password_field' placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=/*[A-Z]).{8,}" required>
+<button class="btn_sign_up" onclick="signup()"><a href="C:\Users\Akansha Panwar\Desktop\OctaHacks\video.html">SIGN UP</a></button>
+
+  </div>
+
+    </div>
+    
+  </div>
+ </div>
+</div>
+<script  src="js/index.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB91tuFGa8nPYI0qzuvHEG0idsAwgRBLx8",
+    authDomain: "blooddonate-6830c.firebaseapp.com",
+    databaseURL: "https://blooddonate-6830c.firebaseio.com",
+    projectId: "blooddonate-6830c",
+    storageBucket: "blooddonate-6830c.appspot.com",
+    messagingSenderId: "261240468769"
+  };
+  firebase.initializeApp(config);
+  
+  function signup(){
+
+  var userEmail = document.getElementById("email_field").value;
+  var userPass = document.getElementById("password_field").value;
+
+  firebase.auth().createUserWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+
+  if( alert("Error : " + errorMessage)) document.location = 'index.html';
+  // ...
+});
+}
+function login(){
+
+  var userEmail = document.getElementById("email_field").value;
+  var userPass = document.getElementById("password_field").value;
+
+  firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  //console.log(errorMessage);
+ 
+});
+}
+
+firebase.auth().onAuthStateChanged(user => {
+if(user) {
+window.location = 'C:\Users\Akansha Panwar\Desktop\OctaHacks\video.html';
+}
+});
+</script>
+</body>
+
+</html>

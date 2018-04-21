@@ -1,0 +1,177 @@
+<html>
+<head>
+<title>Donor Info</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<style>
+#success_message{ display: none;}
+body{
+background-image:url("images/blood.jpg");
+width:100%
+heigth:100%;
+background-size: 100%100%;
+
+}
+</style>
+
+
+
+</head>
+
+<body ng-app="">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+  <div class="navbar-header">
+	 <img src="images\happy-blood-droplet-10750573.jpg" alt="image" width="70px" height="50px">
+    </div>
+    <div class="navbar-header">
+	 <a class="navbar-brand" href="mainpage.html">BLOOD CENTER</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="#" >DONOR</a></li>
+    </ul>
+  <ul class="nav navbar-nav navbar-right">
+    <li><a href="mainpage.html">Logout</a></li>
+    <li>&nbsp&nbsp</li>
+</ul>
+</div>
+  </nav>
+<div class="container" style="text-align:center;">
+
+<form class="well form-horizontal" name="myForm" method="get"  id="contact_form">
+<fieldset>
+
+<!-- Form Name -->
+<legend><h1><b>Information</b></h1></legend>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Name</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input  name="name" id='donorName' placeholder="Full Name" class="form-control"  type="text"  required>
+   <span style="color:red" ng-show="myForm.name.$invalid">
+   <span ng-show="myForm.name.$error.required">Name is required</span>
+   </span>
+   
+	</div>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label" >Age</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input  name="age" id='donorAge' placeholder="Age" class="form-control"  type="text" required>
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label">Gender</label> 
+ <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">  
+    <input   id='donorGender' type="radio" type="text" name="gender" value="Male">Male<br>
+	&nbsp&nbsp&nbsp
+	<input   id='donorGender' type="radio"  type="text" name="gender" value="Female">Female
+</div>
+</div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label" >Phone No.</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+  <input  name="phn" id='donorPhone' placeholder="Phone No." class="form-control"  type="text" required>
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label" >Address</label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+        	<textarea id='donorAddress' class="form-control" name="address" placeholder="Address" required></textarea>
+  </div>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label" >Blood group</label> 
+ <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">  
+    <input  id='donorBloodGroup' type="radio" type="text" name="blood" value="A+">A+
+	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	<input  id='donorBloodGroup' type="radio" type="text" name="blood" value="A-">A-<br>
+	
+	<input  id='donorBloodGroup'type="radio" type="text" name="blood" value="B+">B+
+	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	<input   id='donorBloodGroup'type="radio" type="text" name="blood" value="B-">B-<br>
+	
+	&nbsp&nbsp
+	<input id='donorBloodGroup'  type="radio" type="text" name="blood" value="AB+">AB+
+	
+	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	<input  id='donorBloodGroup' type="radio" type="text" name="blood" value="AB-">AB-<br>
+
+	<input id='donorBloodGroup' type="radio" type="text" name="blood" value="O+">O+
+	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	
+	<input id='donorBloodGroup' type="radio" type="text" name="blood" value="O-">O-<br>
+	
+</div>
+</div>
+</div>
+
+
+<!-- Success message -->
+<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for adding a new data!!!</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label"></label>
+  <div class="col-md-4">
+    <button type="submit" onclick="saveData()"   class="btn btn-warning" >Submit <span class="glyphicon glyphicon-send"></span></button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+</div>
+    </div>	
+	
+	
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB91tuFGa8nPYI0qzuvHEG0idsAwgRBLx8",
+    authDomain: "blooddonate-6830c.firebaseapp.com",
+    databaseURL: "https://blooddonate-6830c.firebaseio.com",
+    projectId: "blooddonate-6830c",
+    storageBucket: "blooddonate-6830c.appspot.com",
+    messagingSenderId: "261240468769"
+  };
+  firebase.initializeApp(config);
+  
+  var database = firebase.database();
+  var ref = database.ref('donors');
+  
+  
+function saveData(){
+  var data = {
+  donorAddress:$('#donorAddress').val(),
+  donorAge:$('#donorAge').val(),
+  donorBloodGroup:$('#donorBloodGroup').val(),
+  donorGender:$('#donorGender').val(),
+  donorName:$('#donorName').val(),
+  donorPhone:$('#donorPhone').val()
+ }
+ ref.push(data); 
+ document.location = "video.html";
+ }
+</script>
+</body>
+	</html>
